@@ -1,0 +1,33 @@
+# React TS + Vite app starting guide
+
+## Vytvoříme aplikaci
+
+```powershell
+npm create vite@latest projekt --template react-ts
+cd projekt
+npm install
+npm run dev
+```
+Nyní nám běží aplikace na `http://localhost:5173/`
+
+## Rozběhneme backend
+
+V novém ps terminálu:
+```powershell
+cd docker
+docker compose up --build
+```
+## Vygenerovat logiku pro backend
+
+V novém ps terminálu:
+```powershell
+cd projekt
+npm install @openapitools/openapi-generator-cli
+npx openapi-generator-cli generate -i http://localhost:8000/openapi.json -g typescript-fetch -o ./src/api
+```
+V `src/api/models` se nám nyní automaticky vytvořila logika (funkce pro volání a návratové modely) pro každy endpoint z backendu.
+
+### K čemu je to dobré?
+* Ušetří nám psaní opakovaného kódu pro každé API volání.
+* Zabrání chybám – všechny požadavky i odpovědi mají typy, které se automaticky generují podle specifikace.
+* Snadné aktualizace – když se změní backend (OpenAPI specifikace), jen přegenerujeme kód.
