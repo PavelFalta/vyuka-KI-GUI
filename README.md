@@ -1,2 +1,2 @@
-# CHECKPOINT 2
-- sign up page
+# CHECKPOINT 4
+- course card component
