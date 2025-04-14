@@ -33,7 +33,7 @@ def create_enrollment(sql: Session, data: EnrollmentCreate) -> EnrollmentRespons
             raise HTTPException(status_code=404, detail="Student not found")
 
         course: models.Course | None = sql.get(
-            models.User, validate_int(data.course_id)
+            models.Course, validate_int(data.course_id)
         )
         if course is None or not course.is_active:
             raise HTTPException(status_code=404, detail="Course not found")
