@@ -29,6 +29,11 @@ export default defineConfig({
 })
 ```
 
+Smažeme obsah `index.css` a nahradíme:
+```css
+@import "tailwindcss";
+```
+
 
 ## Rozběhneme aplikaci
 ```powershell
