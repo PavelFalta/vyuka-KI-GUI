@@ -6,8 +6,36 @@
 npm create vite@latest projekt --template react-ts
 cd projekt
 npm install
+```
+
+## Instalace Tailwind
+
+```powershell
+npm install tailwindcss @tailwindcss/vite
+```
+
+`vite.config.ts` upravíme takto:
+```Typescript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss()
+  ],
+})
+```
+
+
+## Rozběhneme aplikaci
+```powershell
 npm run dev
 ```
+
+
 Nyní nám běží aplikace na `http://localhost:5173/`
 
 ## Rozběhneme backend
