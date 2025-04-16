@@ -1,5 +1,5 @@
 
-# Průvodce: Jak vytvořit stránku `SignUpPage` v Reactu
+# Průvodce: `SignUpPage`
 
 Tento návod tě krok za krokem provede vytvořením kompletní registrační stránky s validací, animacemi a napojením na API pomocí Reactu, TypeScriptu a Framer Motion.
 
