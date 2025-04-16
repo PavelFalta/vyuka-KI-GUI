@@ -1,5 +1,23 @@
 # React TS + Vite app starting guide
 
+## Nejdříve si nainstalujeme Node :)
+
+- Pokud pracujete na školních PC, tak už by měl být nainstalovanej
+- Pokud jste na Linuxu, tak si určitě dokážete dohledat, jak nainstalovat Node pro Vaši distribuci :)
+- Ověřte pomocí
+```powershell
+npm -v
+```
+- Instalace pro Windows:
+  1. Jděte na https://nodejs.org/en/download, stáhněte .msi installer a postupujte podle instrukcí
+  2. !!! Restartujte Powershell/VS Code !!!
+  3. Ověřte instalaci pomocí příkazů
+     ```powershell
+     node -v
+     npm -v
+     ```
+
+
 ## Semafor
 
 1. Extensions -> Traffic Light (by Pavel Falta) -> Install
