@@ -26,7 +26,7 @@ npm -v
 ## Vytvoříme aplikaci
 
 ```powershell
-npm create vite@latest frontend --template react-ts
+npm create vite@latest frontend --- --template react-ts
 cd frontend
 npm install
 ```
