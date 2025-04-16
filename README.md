@@ -1,5 +1,10 @@
 # React TS + Vite app starting guide
 
+## Semafor
+
+1. Extensions -> Traffic Light (by Pavel Falta) -> Install
+2. Search bar (Ctrl + Shift + P) -> Show Traffic Light -> Připojit se k otevřené místnosti
+
 ## Vytvoříme aplikaci
 
 ```powershell
