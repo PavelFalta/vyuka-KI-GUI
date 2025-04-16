@@ -3,8 +3,8 @@
 ## Vytvoříme aplikaci
 
 ```powershell
-npm create vite@latest projekt --template react-ts
-cd projekt
+npm create vite@latest frontend --template react-ts
+cd frontend
 npm install
 ```
 
@@ -54,7 +54,7 @@ docker compose up --build
 
 V novém ps terminálu:
 ```powershell
-cd projekt
+cd frontend
 npm install @openapitools/openapi-generator-cli
 npx openapi-generator-cli generate -i http://localhost:8000/openapi.json -g typescript-fetch -o ./src/api
 ```
