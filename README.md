@@ -3,6 +3,10 @@
 
 Tento návod tě krok za krokem provede vytvořením kompletní registrační stránky s validací, animacemi a napojením na API pomocí Reactu, TypeScriptu a Framer Motion.
 
+## **DEMO UZIVATEL**
+- **Jmeno**: Uzivatel
+- **Heslo**: 123456789
+
 ---
 
 ## 1. Importy
