@@ -241,9 +241,196 @@ const SignUpPage = () => {
 
 ---
 
-## 7. Render JSX – Vizuální podoba formuláře
+## 7. Kód bez animací
+```tsx
+return (
+  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-700 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-md w-full bg-white rounded-xl shadow-md p-8">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl font-bold text-gray-900">
+          Create an Account
+        </h2>
+        <p className="mt-2 text-gray-600">
+          Join our learning platform
+        </p>
+      </div>
 
-Zde následuje JSX kód s komponentami `motion`, které zajišťují animace:
+      {error && (
+        <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6" role="alert">
+          <p className="text-red-700">{error}</p>
+        </div>
+      )}
+
+      <form className="space-y-6" onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div>
+            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+              First Name
+            </label>
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              required
+              value={firstName}
+              onChange={(e) => {
+                setFirstName(e.target.value);
+                validateField('firstName', e.target.value);
+              }}
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            />
+            {formErrors.firstName && (
+              <p className="mt-1 text-sm text-red-600">{formErrors.firstName}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+              Last Name
+            </label>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              required
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value);
+                validateField('lastName', e.target.value);
+              }}
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            />
+            {formErrors.lastName && (
+              <p className="mt-1 text-sm text-red-600">{formErrors.lastName}</p>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              validateField('email', e.target.value);
+            }}
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
+          {formErrors.email && (
+            <p className="mt-1 text-sm text-red-600">{formErrors.email}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+            Username
+          </label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            required
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+              validateField('username', e.target.value);
+            }}
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
+          {formErrors.username && (
+            <p className="mt-1 text-sm text-red-600">{formErrors.username}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            Password
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            required
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              validateField('password', e.target.value);
+            }}
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
+          {formErrors.password && (
+            <p className="mt-1 text-sm text-red-600">{formErrors.password}</p>
+          )}
+        </div>
+
+        <div>
+          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+            Confirm Password
+          </label>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            required
+            value={confirmPassword}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              validateField('confirmPassword', e.target.value);
+            }}
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          />
+          {formErrors.confirmPassword && (
+            <p className="mt-1 text-sm text-red-600">{formErrors.confirmPassword}</p>
+          )}
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            disabled={isLoading || !isFormValid()}
+            className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white focus:outline-none ${
+              isLoading || !isFormValid()
+                ? 'bg-blue-400 cursor-not-allowed'
+                : 'bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+            }`}
+          >
+            {isLoading ? (
+              <div className="flex items-center">
+                <div className="-ml-1 mr-2">
+                  <LoadingSpinner size="sm" color="white" />
+                </div>
+                Creating account...
+              </div>
+            ) : (
+              'Create Account'
+            )}
+          </button>
+        </div>
+
+        <div className="text-center">
+          <p className="text-sm text-gray-600">
+            Already have an account?{' '}
+            <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
+              Sign in
+            </Link>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+)
+
+```
+
+## 8. Vizuální podoba formuláře
+
+Zde následuje kód s komponentami `motion`, které zajišťují animace:
 
 ```tsx
 return (
