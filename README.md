@@ -1,5 +1,11 @@
 # CHECKPOINT 4: Vytvoření komponenty `CourseCard`
 
+## Co chceme naprogramovat?
+![Course Overview](/vyukove_obrazky/image-2.png)
+![Course Edit](/vyukove_obrazky/image-3.png)
+![New Category](/vyukove_obrazky/image-1.png)
+![Confirm Delete](/vyukove_obrazky/image-4.png)
+
 ## 1. Importy a typy
 
 ```tsx
